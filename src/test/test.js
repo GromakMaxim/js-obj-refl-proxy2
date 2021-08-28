@@ -136,6 +136,30 @@ test('should return arr with 1 elem', () => {
 incorrect data
 */
 
+test('should return empty arr (given obj with wrong \'special\' parameter)', () => {
+  const input = {
+    name: 'Лучник',
+    type: 'Bowman',
+    health: 50,
+    level: 3,
+    attack: 40,
+    defence: 10,
+    s1p1e1c1i1a1l: [
+      {
+        id: 9,
+        name: 'Нокаутирующий удар',
+        icon: 'http://...',
+      },
+    ],
+  };
+
+  const expectedOutput = [];
+
+  const actualOutput = getFields(input);
+
+  expect(actualOutput).toStrictEqual(expectedOutput);
+});
+
 test('should return empty arr (given empty obj)', () => {
   const input = {};
   const expectedOutput = [];

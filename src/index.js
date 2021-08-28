@@ -1,6 +1,8 @@
 export default function getFields(obj) {
   if (arguments.length === 0) return [];
   if (Object.entries(obj).length === 0) return [];
+  if (!('special' in obj)) return [];
+
   const result = [];
   obj.special.forEach((elem) => {
     const {
